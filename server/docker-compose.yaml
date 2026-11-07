@@ -21,11 +21,11 @@ services:
       - PYTHONDONTWRITEBYTECODE=1
       - PYTHONUNBUFFERED=1
       - PYTHONPATH=
-      - DASHBOARD_URL=http://localhost:3000
+      - DASHBOARD_URL=https://mem.meph.one
       - APP_DB_NAME=mem0_app
       - JWT_SECRET=${JWT_SECRET}
       - AUTH_DISABLED=${AUTH_DISABLED:-false}
-      - MEM0_TELEMETRY=${MEM0_TELEMETRY:-true}
+      - MEM0_TELEMETRY=${MEM0_TELEMETRY:-false}
 
   postgres:
       image: pgvector/pgvector:pg17
@@ -52,7 +52,7 @@ services:
     networks:
       - mem0_network
     environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:8888
+      - NEXT_PUBLIC_API_URL=https://memc.meph.one
       - API_INTERNAL_URL=http://mem0:8000
       - NEXT_PUBLIC_INSTANCE_NAME=Mem0
     depends_on:
